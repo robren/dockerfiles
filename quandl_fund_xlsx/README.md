@@ -63,7 +63,7 @@ application to be written to
 
 ## GitHub repos 
 
-The Dockerfile  for the image can be found at [robren/dockerfiles](https://github.com/robren/dockerfiles/quandl_fund_xlsx)
+The Dockerfile  for the image can be found at [robren/dockerfiles](https://github.com/robren/dockerfiles)
 The GitHub repo for the quandl _ fund _ xlsx python package can be found at [github.com/robren](https://github.com/robren/quandl_fund_xlsx)
 
 
