@@ -1,0 +1,6 @@
+# Description
+
+A repository to hold Dockerfiles for building container images for projects
+I've uploaded to the docker hub.
+
+Each project is in a separate folder.
