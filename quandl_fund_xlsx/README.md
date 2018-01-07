@@ -1,29 +1,43 @@
 
 # quandl _ fund _ xlsx
 
-A unofficial CLI tool which uses the Quandl API and the Sharadar Essential Fundamentals
+An unofficial CLI tool which uses the Quandl API and the Sharadar Essential Fundamentals
 Database to extract financial fundamentals, Sharadar provided ratios as
 well as calculate additional ratios.  Results are
 written to an Excel Workbook with a separate worksheet per ticker analysed.
 
 # How to use this image
 
+## To build a local image file
+Clone this repo and run the following command.
+
+	docker build -t quandl_fund_xlsx_app .
+
+When this is posted to the dockerhub this step will be unnecesary
+
+# Running the image
+
 Run the image in an interactive terminal mode (that's the -it flag) and bind
 mount a location on the host where you wish the output excel file from the
-application to be written to
+application to be written to.
+
+Note that the environment variable QUANDL_API_KEY must be set. This is exported
+to the application by the use of the -e flag.
 
 ``` shell
 
 	➜  test ls -l
 	total 0
-	➜  test docker run -it -v $PWD:/home/quandl_user -e QUANDL_API_KEY  quandl_fund_xlsx_image
-	quandl_user@1199369bddfd:~$ quandl_fund_xlsx -h
+	➜  test docker run -it -v $PWD:/home/quandl_user -e QUANDL_API_KEY  quandl_fund_xlsx_app
+	quandl_user@3900b86aaaff:~$ quandl_fund_xlsx --version
+	0.1.4
+	quandl_user@3900b86aaaff:~$ quandl_fund_xlsx --help
 	quandl_fund_xlsx
 
 	Usage:
 	quandl_fund_xlsx (-i <ticker-file> | -t <ticker>) [-o <output-file>]
 									[-y <years>] [-d <sharadar-db>]
-									[--dimension <dimension>]
+
 
 	quandl_fund_xlsx.py (-h | --help)
 	quandl_fund_xlsx.py --version
@@ -36,34 +50,27 @@ application to be written to
 	-y --years <years>    How many years of results (max 7 with SF0) [default: 5]
 	-d --database <database>    Sharadar Fundamentals database to use, SFO or
 								SF1 [default: SF0]
-	--dimension <dimension>     Sharadar database dimension, MRY, MRT, ART [default: MRY]
 	--version             Show version.
-	quandl_user@1199369bddfd:~$ quandl_fund_xlsx -t aapl
+	quandl_user@3900b86aaaff:~$ quandl_fund_xlsx -t MSFT
 	{'--database': 'SF0',
-	'--dimension': 'MRY',
 	'--input': None,
 	'--output': 'stocks.xlsx',
-	'--ticker': 'aapl',
+	'--ticker': 'MSFT',
 	'--years': '5'}
-	('Ticker =', 'aapl')
+	Ticker = MSFT
 	Output will be written to stocks.xlsx
-	2017-09-02 20:34:00,877 INFO     Processing the stock aapl
-	2017-09-02 20:34:07,213 INFO     Processed the stock aapl
-	quandl_user@1199369bddfd:~$ ls -l
-	total 12
-	-rw-r--r-- 1 quandl_user quandl_user 8794 Sep  2 20:34 stocks.xlsx
-	quandl_user@1199369bddfd:~$ exit
-	exit
-	➜  test ls -l
-	total 12
-	-rw-r--r-- 1 test test 8794 Sep  2 16:34 stocks.xlsx
-	➜
-
+	2018-01-07 18:18:02,747 INFO     Processing the stock MSFT
+	2018-01-07 18:18:13,089 INFO     Processed the stock MSFT
+	quandl_user@3900b86aaaff:~$ ls -l
+	total 20
+	-rw-rw-r-- 1 quandl_user quandl_user  532 Jan  7 17:26 Dockerfile
+	-rw-rw-r-- 1 quandl_user quandl_user 2326 Sep  2 21:25 README.md
+	-rw-r--r-- 1 quandl_user quandl_user 8796 Jan  7 18:18 stocks.xlsx
 ```
 
 ## GitHub repos 
 
-The Dockerfile  for the image can be found at [robren/dockerfiles](https://github.com/robren/dockerfiles)
-The GitHub repo for the quandl _ fund _ xlsx python package can be found at [github.com/robren](https://github.com/robren/quandl_fund_xlsx)
+The Dockerfile for the image can be found at [robren/dockerfiles/quandl_fund_xlsx](https://github.com/robren/dockerfiles/qaundl_fund_xlsx)
+The GitHub repo for the quandl _ fund _ xlsx python package can be found at [github.com/robren/quand_fund_xlsx](https://github.com/robren/quandl_fund_xlsx)
 
 
