@@ -25,7 +25,7 @@ Note that at least one of the local  environment variables
 QUANDL_API_SF0_KEY or QUANDL_API_SF1_KEY must be set and exported to the docker container
 using the -e flag
 
-``` shell
+``` console
 
 ➜  quandl_fund_xlsx git:(master) ✗ ls -la
 total 24
@@ -106,7 +106,7 @@ drwxr-xr-x  6 rob  staff    192 Apr 21 17:30 ..
 -rw-r--r--  1 rob  staff   2706 Apr 21 17:35 README.md
 -rw-r--r--  1 rob  staff     15 Apr 22 11:05 portfolio.txt
 -rw-r--r--  1 rob  staff  37558 Apr 22 11:07 portfolio.xlsx
-
+```
 
 ## GitHub repos
 The Dockerfile for the image can be found at [github.com/robren/dockerfiles/quandl_fund_xlsx](https://github.com/robren/dockerfiles/blob/master/quandl_fund_xlsx/Dockerfile)
