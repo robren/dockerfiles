@@ -1,7 +1,7 @@
-# Creates an environment suitable for running the 
+# Creates an environment suitable for running the
 # quandl_fund_xlsx command.
 
-FROM python:3
+FROM python:3.8-slim-buster
 MAINTAINER robren <rob@robren.net>
 
 ENV user quandl_user
