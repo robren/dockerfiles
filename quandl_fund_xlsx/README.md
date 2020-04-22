@@ -8,15 +8,6 @@ written to an Excel Workbook with a separate worksheet per ticker analysed.
 
 # How to use this image
 
-## To build a local image file
-Clone this repo and run the following command.
-
-	docker build -t quandl_fund_xlsx_app .
-
-When this is posted to the dockerhub this step will be unnecessary.
-
-# Running the image
-
 Run the image in an interactive terminal mode (that's the -it flag) and bind
 mount a location on the host where you wish the output excel file from the
 application to be written to (the -v flag)
@@ -35,7 +26,7 @@ drwxr-xr-x  6 rob  staff   192 Apr 21 17:30 ..
 -rw-r--r--  1 rob  staff  2706 Apr 21 17:35 README.md
 -rw-r--r--  1 rob  staff    15 Apr 22 11:05 portfolio.txt
 
-➜  quandl_fund_xlsx git:(master) ✗ docker run -it -v $PWD:/home/quandl_user -e QUANDL_API_SF1_KEY quandl_fund_xlsx_app
+➜  quandl_fund_xlsx git:(master) ✗ docker run -it -v $PWD:/home/quandl_user -e QUANDL_API_SF1_KEY robren/quandl_fund_xlsx_app
 quandl_user@48146d26108d:~$ quandl_fund_xlsx --version
 version='0.4.0'
 
@@ -106,6 +97,17 @@ drwxr-xr-x  6 rob  staff    192 Apr 21 17:30 ..
 -rw-r--r--  1 rob  staff   2706 Apr 21 17:35 README.md
 -rw-r--r--  1 rob  staff     15 Apr 22 11:05 portfolio.txt
 -rw-r--r--  1 rob  staff  37558 Apr 22 11:07 portfolio.xlsx
+```
+
+## To build a local image file
+
+For experimenting with different base images or to build a local image file, then clone this repo
+and run the following:
+
+``` console
+
+docker build -t quandl_fund_xlsx_app .
+
 ```
 
 ## GitHub repos
